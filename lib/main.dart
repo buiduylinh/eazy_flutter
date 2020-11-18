@@ -1,5 +1,6 @@
-import 'file:///F:/NTQ_Project/eazy_flutter/lib/screens/splash/splash_page.dart';
+import 'package:eazy_flutter/route/route_handler.dart';
 import 'package:flutter/material.dart';
+import 'screens/splash/splash_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashPage(),
+      home: SplashPage(data: ""),
+      onGenerateRoute: routeHandler,
     );
   }
 }
