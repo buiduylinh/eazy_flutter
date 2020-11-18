@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eazy_flutter/extentions/extentions.dart';
+import 'package:eazy_flutter/generated/l10n.dart';
 import 'package:eazy_flutter/screens/login/login_page.dart';
 import 'package:eazy_flutter/util/navigator_util.dart';
 import 'package:flutter/material.dart';
@@ -77,63 +78,66 @@ class FirstPage extends StatelessWidget {
   FirstPage({Key key}) : super(key: key);
 
   _goLoginPage(BuildContext context) {
-    NavigatorUtil.pushPageReplacement(context, LoginPage());
+    NavigatorUtil.pushPage(context, LoginPage());
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Container(
-                height: double.infinity,
-                child: Image(
-                  image: AssetImage(R.img_bg_signup),
-                  fit: BoxFit.fill,
-                )),
-            Column(
-              children: [
-                Container(
-                    margin: EdgeInsets.only(top: 84), child: FirstSlide()),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        height: 56,
-                        margin: EdgeInsets.only(right: 16, left: 16),
-                        child: FlatButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          color: Color(0xff017cf9),
-                          onPressed: () {},
-                          child: Text(
-                            'さっそく始める（無料）',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
+    return WillPopScope(
+      onWillPop: () => NavigatorUtil.exitApp(context),
+      child: SafeArea(
+        child: Scaffold(
+          body: Stack(
+            children: [
+              Container(
+                  height: double.infinity,
+                  child: Image(
+                    image: AssetImage(R.img_bg_signup),
+                    fit: BoxFit.fill,
+                  )),
+              Column(
+                children: [
+                  Container(
+                      margin: EdgeInsets.only(top: 84), child: FirstSlide()),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 56,
+                          margin: EdgeInsets.only(right: 16, left: 16),
+                          child: FlatButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            color: Color(0xff017cf9),
+                            onPressed: () {},
+                            child: Text(
+                              S.of(context).btn_register,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
-                      ),
-                      FlatButton(
-                          onPressed: () {
-                            _goLoginPage(context);
-                          },
-                          child: Text(
-                            'ログイン',
-                            style: TextStyle(
-                                fontSize: 14, color: Color(0xde38353c)),
-                          )),
-                    ],
-                  ),
-                )
-              ],
-            )
-          ],
+                        FlatButton(
+                            onPressed: () {
+                              _goLoginPage(context);
+                            },
+                            child: Text(
+                              S.of(context).login,
+                              style: TextStyle(
+                                  fontSize: 14, color: Color(0xde38353c)),
+                            )),
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

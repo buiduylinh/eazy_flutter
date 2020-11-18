@@ -22,7 +22,7 @@ class SplashPage extends StatelessWidget {
 
   _goFirstPage(BuildContext context) {
     Future.delayed(const Duration(seconds: 1), () {
-      NavigatorUtil.pushPageNamed(context, RouteLink.firstPage, FirstPageArgument());
+      NavigatorUtil.pushPageReplacementNamed(context, RouteLink.firstPage, FirstPageArgument());
     });
   }
 }

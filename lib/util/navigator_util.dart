@@ -8,6 +8,12 @@ class NavigatorUtil {
     return Navigator.pushNamed(context, link, arguments: arguments);
   }
 
+  static Future pushPageReplacementNamed(
+      BuildContext context, String link, Object arguments) {
+    return Navigator.pushReplacementNamed(context, link, arguments: arguments);
+  }
+
+
   static Future pushPage(BuildContext context, Widget page) {
     var val = Navigator.push(
       context,
