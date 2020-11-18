@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eazy_flutter/extentions/extentions.dart';
 import 'package:eazy_flutter/screens/login/login_page.dart';
+import 'package:eazy_flutter/util/navigator_util.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy_flutter/generated/r.dart';
 
@@ -76,7 +77,7 @@ class FirstPage extends StatelessWidget {
   FirstPage({Key key}) : super(key: key);
 
   _goLoginPage(BuildContext context) {
-    addPage(context, LoginPage());
+    NavigatorUtil.pushPageReplacement(context, LoginPage());
   }
 
   @override
