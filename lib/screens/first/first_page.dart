@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:eazy_flutter/extentions/extentions.dart';
+import 'package:eazy_flutter/screens/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy_flutter/generated/r.dart';
 
@@ -73,6 +75,10 @@ class _FirstSlideState extends State<FirstSlide> {
 class FirstPage extends StatelessWidget {
   FirstPage({Key key}) : super(key: key);
 
+  _goLoginPage(BuildContext context) {
+    addPage(context, LoginPage());
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -113,11 +119,13 @@ class FirstPage extends StatelessWidget {
                         ),
                       ),
                       FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _goLoginPage(context);
+                          },
                           child: Text(
                             "ログイン",
-                            style:
-                                TextStyle(fontSize: 14, color: Color(0xde38353c)),
+                            style: TextStyle(
+                                fontSize: 14, color: Color(0xde38353c)),
                           )),
                     ],
                   ),
