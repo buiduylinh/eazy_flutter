@@ -130,3 +130,8 @@ class FirstPage extends StatelessWidget {
     );
   }
 }
+
+class FirstPageArgument {
+  static const String routeName = "FirstPage";
+  FirstPageArgument();
+}
