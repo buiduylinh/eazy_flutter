@@ -110,7 +110,7 @@ class FirstPage extends StatelessWidget {
                           color: Color(0xff017cf9),
                           onPressed: () {},
                           child: Text(
-                            "さっそく始める（無料）",
+                            'さっそく始める（無料）',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
@@ -123,7 +123,7 @@ class FirstPage extends StatelessWidget {
                             _goLoginPage(context);
                           },
                           child: Text(
-                            "ログイン",
+                            'ログイン',
                             style: TextStyle(
                                 fontSize: 14, color: Color(0xde38353c)),
                           )),

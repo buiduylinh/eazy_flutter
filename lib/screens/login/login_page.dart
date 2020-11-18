@@ -8,7 +8,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("ログイン"),
+        title: Text('ログイン'),
       ),
       body: Column(
         children: [
@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
               color: Color(0xff017cf9),
               onPressed: () {},
               child: Text(
-                "ログイン",
+                'ログイン',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
             child: FlatButton(
                 onPressed: () {},
                 child: Text(
-                  "パスワードをお忘れですか？",
+                  'パスワードをお忘れですか？',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                   ),
