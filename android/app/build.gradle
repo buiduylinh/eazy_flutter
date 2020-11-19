@@ -46,10 +46,29 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+        }
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+        }
+
+    }
+
+    flavorDimensions "app"
+
+    productFlavors {
+        dev {
+            dimension "app"
+            applicationId "com.app.eazy_flutter.dev"
+            resValue "string", "app_name", "Eazy Flutter Dev"
+        }
+        live {
+            dimension "app"
+            applicationId "com.app.eazy_flutter"
+            resValue "string", "app_name", "Eazy Flutter"
         }
     }
 }
