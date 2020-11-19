@@ -1,11 +1,31 @@
+import 'dart:async';
+
 import 'package:eazy_flutter/route/route_handler.dart';
+import 'package:eazy_flutter/setting/flavor_settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
 import 'screens/splash/splash_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final settings = await _getFlavorSettings();
+  print('${settings.SERVER_URL}');
   runApp(MyApp());
+}
+
+Future<FlavorSettings> _getFlavorSettings() async {
+  String flavor = await const MethodChannel('flavor').invokeMethod<String>('getFlavor');
+  print('STARTED WITH FLAVOR $flavor');
+
+  if(flavor == 'dev') {
+     return FlavorSettings.dev();
+  } else if (flavor == 'live') {
+     return FlavorSettings.live();
+  } else {
+      throw Exception('NOT FOUND FLAVOR');
+  }
 }
 
 class MyApp extends StatelessWidget {
