@@ -20,6 +20,7 @@ class LoginProvider extends ChangeNotifier {
   login(LoginParam param) async {
     LoginResponse response = await _loginUserCase.execute(param);
     isLoginSuccess = true;
+    print(response.reponse);
     notifyListeners();
   }
 }

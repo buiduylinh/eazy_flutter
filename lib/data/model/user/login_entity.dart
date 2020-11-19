@@ -3,15 +3,15 @@ import 'package:eazy_flutter/data/model/entity_model.dart';
 import 'package:eazy_flutter/domain/model/login_response.dart';
 
 class LoginEntity extends EntityModel{
-  LoginEntity.fromJson(String data){
+  dynamic data;
 
-  }
+  LoginEntity(this.data);
 }
 
 class LoginEntityMapper extends EntityMapper<LoginResponse, LoginEntity> {
   @override
   LoginResponse mapToDomain(LoginEntity entityModel) {
-
+      return LoginResponse(entityModel.data);
   }
 
   @override

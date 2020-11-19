@@ -1,4 +1,7 @@
+import 'package:eazy_flutter/domain/model/login_param.dart';
+import 'package:eazy_flutter/presentation/screens/login/login_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key key}) : super(key: key);
@@ -50,7 +53,9 @@ class LoginPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
               color: Color(0xff017cf9),
-              onPressed: () {},
+              onPressed: () {
+                context.read<LoginProvider>().login(LoginParam());
+              },
               child: Text(
                 'ログイン',
                 style: TextStyle(

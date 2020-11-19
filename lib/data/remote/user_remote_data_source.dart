@@ -15,7 +15,7 @@ class UserRemoteDataSource extends UserRepository {
   Future<LoginResponse> login(LoginParam loginParam) async {
     LoginRequest loginRequest = LoginRequest(); //todo create request from param here
     Response response = await Http.instance.login(loginRequest);
-    LoginEntity entity = LoginEntity.fromJson(response.data);
+    LoginEntity entity = LoginEntity(response.data);
     return _loginEntityMapper.mapToDomain(entity);
   }
 }
