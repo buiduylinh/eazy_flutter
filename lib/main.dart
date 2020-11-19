@@ -1,8 +1,8 @@
-import 'package:eazy_flutter/route/route_handler.dart';
+import 'package:eazy_flutter/presentation/route/route_handler.dart';
+import 'package:eazy_flutter/presentation/screens/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
-import 'screens/splash/splash_page.dart';
 
 void main() {
   runApp(MyApp());

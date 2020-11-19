@@ -1,7 +1,5 @@
-
-import 'package:eazy_flutter/route/route_link.dart';
+import 'package:eazy_flutter/presentation/route/route_link.dart';
 import 'package:flutter/cupertino.dart';
-
 import '../screens/first/first_page.dart';
 import '../screens/splash/splash_page.dart';
 

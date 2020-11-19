@@ -1,11 +1,8 @@
-import 'package:eazy_flutter/extentions/extentions.dart';
-import 'package:eazy_flutter/route/route_link.dart';
-import 'package:eazy_flutter/screens/first/first_page.dart';
+import 'package:eazy_flutter/presentation/route/route_link.dart';
+import 'package:eazy_flutter/presentation/screens/first/first_page.dart';
 import 'package:eazy_flutter/util/navigator_util.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy_flutter/generated/r.dart';
-
-import '../first/first_page.dart';
 
 class SplashPage extends StatelessWidget {
   String data;
