@@ -22,16 +22,17 @@ Future<void> main() async {
 }
 
 Future<FlavorSettings> _getFlavorSettings() async {
-  String flavor = await const MethodChannel('flavor').invokeMethod<String>('getFlavor');
-  print('STARTED WITH FLAVOR $flavor');
-
-  if(flavor == 'dev') {
-     return FlavorSettings.dev();
-  } else if (flavor == 'live') {
-     return FlavorSettings.live();
-  } else {
-      throw Exception('NOT FOUND FLAVOR');
-  }
+  // String flavor = await const MethodChannel('flavor').invokeMethod<String>('getFlavor');
+  // print('STARTED WITH FLAVOR $flavor');
+  //
+  // if(flavor == 'dev') {
+  //    return FlavorSettings.dev();
+  // } else if (flavor == 'live') {
+  //    return FlavorSettings.live();
+  // } else {
+  //     throw Exception('NOT FOUND FLAVOR');
+  // }
+  return FlavorSettings.dev();
 }
 
 class MyApp extends StatelessWidget {

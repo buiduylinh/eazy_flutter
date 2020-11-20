@@ -57,20 +57,20 @@ android {
 
     }
 
-    flavorDimensions "app"
-
-    productFlavors {
-        dev {
-            dimension "app"
-            applicationId "com.app.eazy_flutter.dev"
-            resValue "string", "app_name", "Eazy Flutter Dev"
-        }
-        live {
-            dimension "app"
-            applicationId "com.app.eazy_flutter"
-            resValue "string", "app_name", "Eazy Flutter"
-        }
-    }
+//    flavorDimensions "app"
+//
+//    productFlavors {
+//        dev {
+//            dimension "app"
+//            applicationId "com.app.eazy_flutter.dev"
+//            resValue "string", "app_name", "Eazy Flutter Dev"
+//        }
+//        live {
+//            dimension "app"
+//            applicationId "com.app.eazy_flutter"
+//            resValue "string", "app_name", "Eazy Flutter"
+//        }
+//    }
 }
 
 flutter {
