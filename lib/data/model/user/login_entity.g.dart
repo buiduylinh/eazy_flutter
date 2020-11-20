@@ -9,10 +9,12 @@ part of 'login_entity.dart';
 LoginEntity _$LoginEntityFromJson(Map<String, dynamic> json) {
   return LoginEntity(
     json['user_name'] as String,
+    json['token'] as String,
   );
 }
 
 Map<String, dynamic> _$LoginEntityToJson(LoginEntity instance) =>
     <String, dynamic>{
       'user_name': instance.userName,
+      'token': instance.token,
     };

@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:eazy_flutter/data/http/http.dart';
 import 'package:eazy_flutter/data/http/request/login_request.dart';
+import 'package:eazy_flutter/data/local/share_preference_key.dart';
+import 'package:eazy_flutter/data/local/sharepreference_manager.dart';
+import 'package:eazy_flutter/data/model/base_http_entity.dart';
 import 'package:eazy_flutter/data/model/user/login_entity.dart';
 import 'package:eazy_flutter/domain/model/login_param.dart';
 import 'package:eazy_flutter/domain/model/login_response.dart';
@@ -15,7 +18,11 @@ class UserRemoteDataSource extends UserRepository {
   Future<LoginResponse> login(LoginParam loginParam) async {
     LoginRequest loginRequest = LoginRequest(); //todo create request from param here
     Response response = await Http.instance.login(loginRequest);
-    LoginEntity entity = LoginEntity(response.data.toString());
+    BaseHttpEntity<LoginEntity> loginResponse = BaseHttpEntity.fromJson(
+        response.data, (data) => LoginEntity.fromJson(data));
+    LoginEntity entity = loginResponse.data;
+    SharePreferenceManager.setString(PrefKey.TOKEN, entity.token);
+    print(response.data.toString());
     return _loginEntityMapper.mapToDomain(entity);
   }
 }

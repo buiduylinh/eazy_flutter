@@ -10,7 +10,10 @@ class LoginEntity extends EntityModel{
   @JsonKey(name: 'user_name')
   String userName;
 
-  LoginEntity(this.userName);
+  @JsonKey(name: 'token')
+  String token;
+
+  LoginEntity(this.userName, this.token);
 
   factory LoginEntity.fromJson(Map<String, dynamic> json) =>
       _$LoginEntityFromJson(json);
@@ -21,7 +24,7 @@ class LoginEntity extends EntityModel{
 class LoginEntityMapper extends EntityMapper<LoginResponse, LoginEntity> {
   @override
   LoginResponse mapToDomain(LoginEntity entityModel) {
-      return LoginResponse(LoginEntity(""));
+      return LoginResponse(LoginEntity("", ""));
   }
 
   @override

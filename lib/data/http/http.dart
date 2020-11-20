@@ -46,4 +46,8 @@ class Http {
     }""";
     return _dio.post("/", data: request);
   }
+
+  Future<Response> executeRequest(String request) async {
+    return _dio.post("/", data: request);
+  }
 }
