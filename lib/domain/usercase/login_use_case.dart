@@ -13,7 +13,6 @@ class LoginUserCase extends UseCase<LoginParam, Future<LoginResponse>> {
   Future<LoginResponse> execute(LoginParam param) async{
     LoginResponse response = await _repository.login(param);
     //xu li logic o day
-    print(response);
     return response;
   }
 
