@@ -1,7 +1,7 @@
-abstract class UseCase<P, T> {
-  T execute(P param);
+abstract class UseCase<P, R> {
+  R execute(P param);
 }
 
-abstract class UseCaseWithOutParam<T> {
-  T execute();
+abstract class UseCaseWithOutParam<R> {
+  R execute();
 }

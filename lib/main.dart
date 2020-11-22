@@ -15,7 +15,7 @@ Future<void> main() async {
   print('${settings.SERVER_URL}');
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (_) => LoginProvider()),
+      ChangeNotifierProvider(create: (_) => LoginProvider(),),
     ],
     child: MyApp(),
   ));
@@ -32,7 +32,7 @@ Future<FlavorSettings> _getFlavorSettings() async {
   // } else {
   //     throw Exception('NOT FOUND FLAVOR');
   // }
-  return FlavorSettings.dev();
+  return FlavorSettings.live();
 }
 
 class MyApp extends StatelessWidget {

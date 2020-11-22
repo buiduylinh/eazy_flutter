@@ -38,8 +38,7 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20),
                       child: TextField(
-                          controller: mailTextController,
-                          style: TextStyle(fontSize: 14),
+                          controller: TextEditingController(text: "eazy1910@ntq-solution.com"),                          style: TextStyle(fontSize: 14),
                           decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'メールアドレス')),
                     ),
@@ -49,7 +48,7 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20),
                       child: TextField(
-                          controller: passTextController,
+                          controller: TextEditingController(text: "ntq123"),
                           obscureText: true,
                           style: TextStyle(fontSize: 14),
                           decoration: InputDecoration(
@@ -96,5 +95,12 @@ class LoginPage extends StatelessWidget {
             ],
           );
         }));
+  }
+
+  void routeToMain(BuildContext context) {
+    bool isLoginSuccess = Provider.of<LoginProvider>(context, listen: false).isLoginSuccess;
+    if(isLoginSuccess) {
+      NavigatorUtil.pushPageReplacement(context, HomePage());
+    }
   }
 }
