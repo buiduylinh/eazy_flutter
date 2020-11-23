@@ -1,59 +1,39 @@
-import 'package:json_annotation/json_annotation.dart';
-part 'meetpeople_request.g.dart';
+import 'package:eazy_flutter/generated/json/base/json_convert_content.dart';
+import 'package:eazy_flutter/generated/json/base/json_field.dart';
 
-@JsonSerializable()
-class MeetPeopleRequest {
-  @JsonKey(name: "user_id")
-  final String userId;
-  @JsonKey(name: "user_name")
-  final String userName;
-  @JsonKey(name: "email")
-  final String email;
-  @JsonKey(name: "is_online")
-  final bool isOnline;
-  @JsonKey(name: "long")
-  final double longitute;
-  @JsonKey(name: "lat")
-  final double lat;
-  @JsonKey(name: "dist")
-  final double distance;
-  @JsonKey(name: "ava_id")
-  final String avataId;
-  @JsonKey(name: "age")
-  final int age;
-  @JsonKey(name: "gender")
-  final int gender;
-  @JsonKey(name: "status")
-  final String status;
-  @JsonKey(name: "unread_num")
-  final int unreadNum;
-  @JsonKey(name: "region")
-  final int region;
-  @JsonKey(name: "is_fav")
-  final int isFav;
-  @JsonKey(name: "is_contacted")
-  final bool isContacted;
-  @JsonKey(name: "application_name")
-  final String applicationName;
-  @JsonKey(name: "last_login")
-  final String lastLogin;
-  @JsonKey(name: "voice_call_waiting")
-  final bool isVoiceCallWaiting;
-  @JsonKey(name: "video_call_waiting")
-  final bool isVideoCallWaiting;
-  @JsonKey(name: "abt")
-  final String about;
+class MeetpeopleRequest with JsonConvert<MeetpeopleRequest> {
+	int distance;
+	int filter;
+	@JSONField(name: "is_new_login")
+	bool isNewLogin;
+	double lat;
+	double long;
+	@JSONField(name: "lower_age")
+	int lowerAge;
+	List<int> region;
+	int skip;
+	@JSONField(name: "sort_type")
+	int sortType;
+	int take;
+	@JSONField(name: "upper_age")
+	int upperAge;
+	String api;
+	String token;
 
-  @JsonKey(name: "appeal_comment")
-  final String appealComment;
+	MeetpeopleRequest();
 
-  MeetPeopleRequest(this.userId, this.userName, this.email, this.isOnline,
-      this.longitute, this.lat, this.distance, this.avataId, this.age,
-      this.gender, this.status, this.unreadNum, this.region, this.isFav,
-      this.isContacted, this.applicationName, this.lastLogin,
-      this.isVoiceCallWaiting, this.isVideoCallWaiting, this.about,
-      this.appealComment);
-  factory MeetPeopleRequest.fromJson(Map<String, dynamic> json) => _$MeetPeopleRequestFromJson(json);
-  Map<String, dynamic> toJson() => _$MeetPeopleRequestToJson(this);
-
+	MeetpeopleRequest.fromSearchSettting({
+      this.distance,
+      this.filter,
+      this.isNewLogin,
+      this.lat,
+      this.long,
+      this.lowerAge,
+      this.region,
+      this.skip,
+      this.sortType,
+      this.take,
+      this.upperAge,
+      this.api,
+      this.token});
 }
