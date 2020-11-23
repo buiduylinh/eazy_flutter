@@ -8,6 +8,8 @@ part of 'login_request.dart';
 
 LoginRequest _$LoginRequestFromJson(Map<String, dynamic> json) {
   return LoginRequest(
+    email: json['email'] as String,
+    password: json['pwd'] as String,
     deviceId: json['device_id'] as String,
     notifyToken: json['notify_token'] as String,
     deviceType: json['device_type'] as int,
@@ -21,11 +23,16 @@ LoginRequest _$LoginRequestFromJson(Map<String, dynamic> json) {
     allowSendGift: json['allow_send_gift'] as bool,
     use_fcm: json['use_fcm'] as bool,
     adid: json['adid'] as String,
+    language: json['language'] as String,
+    allowSendChatInVideoCall: json['allow_send_chat_in_video_call'] as bool,
+    api: json['api'] as String,
   );
 }
 
 Map<String, dynamic> _$LoginRequestToJson(LoginRequest instance) =>
     <String, dynamic>{
+      'email': instance.email,
+      'pwd': instance.password,
       'device_id': instance.deviceId,
       'notify_token': instance.notifyToken,
       'device_type': instance.deviceType,
@@ -39,4 +46,7 @@ Map<String, dynamic> _$LoginRequestToJson(LoginRequest instance) =>
       'allow_send_gift': instance.allowSendGift,
       'use_fcm': instance.use_fcm,
       'adid': instance.adid,
+      'language': instance.language,
+      'allow_send_chat_in_video_call': instance.allowSendChatInVideoCall,
+      'api': instance.api,
     };
