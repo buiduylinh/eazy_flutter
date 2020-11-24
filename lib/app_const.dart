@@ -1,5 +1,8 @@
+import 'package:eazy_flutter/setting/flavor_settings.dart';
+
 class Const {
-  static final String baseUrl = 'http://eazy1.ntq.solutions:9119';
+  static final FlavorSettings flavor = FlavorSettings.dev();
+  static final String baseUrl = flavor.SERVER_URL;
   static final int httpConnectTimeout = 10000;
   static final int httpReceiveTimeout = 10000;
 }

@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
         body: Builder(builder: (context) {
           if (context.watch<LoginProvider>().isLoginSuccess) {
             SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-              //todo DungPT go meetpeople
+              routeToMain(context);
             });
           }
           return Column(
@@ -39,7 +39,8 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20),
                       child: TextField(
-                          controller: TextEditingController(text: "eazy1910@ntq-solution.com"),                          style: TextStyle(fontSize: 14),
+                          controller: mailTextController,
+                          style: TextStyle(fontSize: 14),
                           decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'メールアドレス')),
                     ),
@@ -49,7 +50,7 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20),
                       child: TextField(
-                          controller: TextEditingController(text: "ntq123"),
+                          controller: passTextController,
                           obscureText: true,
                           style: TextStyle(fontSize: 14),
                           decoration: InputDecoration(
