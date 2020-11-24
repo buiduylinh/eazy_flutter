@@ -1,14 +1,15 @@
 import 'dart:io';
 
 import 'package:eazy_flutter/data/model/entity_mapper.dart';
-import 'package:eazy_flutter/data/model/user/login_entity.dart';
+import 'package:eazy_flutter/data/model/user/login_entity_mapper.dart';
 import 'package:eazy_flutter/data/remote/user_remote_data_source.dart';
 import 'package:eazy_flutter/data/repository/user/user_repository_impl.dart';
-import 'package:eazy_flutter/domain/model/login_param.dart';
+import 'package:eazy_flutter/domain/model/params/login_param.dart';
 import 'package:eazy_flutter/domain/model/login_response.dart';
 import 'package:eazy_flutter/domain/repository/repository.dart';
 import 'package:eazy_flutter/domain/usercase/login_use_case.dart';
 import 'package:eazy_flutter/domain/usercase/use_case.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_info/device_info.dart';
 import 'package:intl/intl.dart';

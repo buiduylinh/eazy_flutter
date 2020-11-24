@@ -1,4 +1,4 @@
-import 'package:eazy_flutter/domain/model/login_param.dart';
+import 'package:eazy_flutter/domain/model/params/login_param.dart';
 import 'package:eazy_flutter/presentation/screens/first/first_page.dart';
 import 'package:eazy_flutter/presentation/screens/home/home_page.dart';
 import 'package:eazy_flutter/presentation/screens/login/login_provider.dart';

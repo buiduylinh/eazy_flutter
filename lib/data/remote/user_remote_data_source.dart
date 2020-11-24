@@ -5,8 +5,10 @@ import 'package:eazy_flutter/data/http/request/login_request.dart';
 import 'package:eazy_flutter/data/local/share_preference_key.dart';
 import 'package:eazy_flutter/data/local/sharepreference_manager.dart';
 import 'package:eazy_flutter/data/model/base_http_entity.dart';
+import 'package:eazy_flutter/data/model/entity_mapper.dart';
 import 'package:eazy_flutter/data/model/user/login_entity.dart';
-import 'package:eazy_flutter/domain/model/login_param.dart';
+import 'package:eazy_flutter/domain/model/domain_model.dart';
+import 'package:eazy_flutter/domain/model/params/login_param.dart';
 import 'package:eazy_flutter/domain/model/login_response.dart';
 import 'package:eazy_flutter/domain/repository/user_repository.dart';
 import 'dart:convert';
@@ -14,12 +16,12 @@ import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart' as crypto;
 
 class UserRemoteDataSource extends UserRepository {
-  LoginEntityMapper _loginEntityMapper;
+  EntityMapper _entityMapper;
 
-  UserRemoteDataSource(this._loginEntityMapper);
+  UserRemoteDataSource(this._entityMapper);
 
   @override
-  Future<LoginResponse> login(LoginParam loginParam) async {
+  Future<DomainModel> login(LoginParam loginParam) async {
     String passMd5 = generateMd5(loginParam.password);
 
     LoginRequest loginRequest = LoginRequest(
@@ -50,7 +52,7 @@ class UserRemoteDataSource extends UserRepository {
     print(response.data.toString());
     if (loginResponse.code == HttpCode.SERVER_SUCCESS) {
       SharePreferenceManager.setString(PrefKey.TOKEN, entity.token);
-      return _loginEntityMapper.mapToDomain(entity);
+      return _entityMapper.mapToDomain(entity);
     } else {
       throw loginResponse.code;
     }

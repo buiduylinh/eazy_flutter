@@ -9,7 +9,7 @@ import 'package:eazy_flutter/data/repository/meetpeople/meetpeople_repository_im
 import 'package:eazy_flutter/data/repository/user/user_repository_impl.dart';
 import 'package:eazy_flutter/domain/model/meetpeople/meet_people.dart';
 import 'package:eazy_flutter/domain/model/meetpeople/meetpeople_response.dart';
-import 'package:eazy_flutter/domain/model/meetpeople_param.dart';
+import 'package:eazy_flutter/domain/model/params/meetpeople_param.dart';
 import 'package:eazy_flutter/domain/repository/repository.dart';
 import 'package:eazy_flutter/domain/usercase/meetpeople_use_case.dart';
 import 'package:eazy_flutter/util/fake.dart';

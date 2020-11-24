@@ -1,24 +1,28 @@
 import 'package:dio/dio.dart';
 import 'package:eazy_flutter/data/http/http.dart';
+import 'package:eazy_flutter/data/http/request/banner_request.dart';
 import 'package:eazy_flutter/data/http/request/meetpeople_request.dart';
 import 'package:eazy_flutter/data/local/share_preference_key.dart';
 import 'package:eazy_flutter/data/local/sharepreference_manager.dart';
-import 'package:eazy_flutter/data/model/base_http_entity.dart';
+import 'package:eazy_flutter/data/model/entity_mapper.dart';
+import 'package:eazy_flutter/data/model/entity_model.dart';
+import 'package:eazy_flutter/data/model/meetpeople/banner_entity.dart';
 import 'package:eazy_flutter/data/model/meetpeople/meetpeople_entity.dart';
-import 'package:eazy_flutter/data/model/meetpeople/meetpeople_entity_mapper.dart';
-import 'package:eazy_flutter/domain/model/meetpeople/meet_people.dart';
-import 'package:eazy_flutter/domain/model/meetpeople/meetpeople_response.dart';
-import 'package:eazy_flutter/domain/model/meetpeople_param.dart';
+import 'package:eazy_flutter/domain/model/domain_model.dart';
+import 'package:eazy_flutter/domain/model/params/banner_param.dart';
+import 'package:eazy_flutter/domain/model/params/meetpeople_param.dart';
 import 'package:eazy_flutter/domain/repository/meetpeople_respository.dart';
 import 'package:eazy_flutter/util/fake.dart';
 
-class MeetPeopleRemoteDataSource extends MeetPeopleRespository {
-  MeetPeopleEntityMapper _meetPeopleMapper;
+import '../../app_const.dart';
 
-  MeetPeopleRemoteDataSource(this._meetPeopleMapper);
+class MeetPeopleRemoteDataSource extends MeetPeopleRespository {
+  EntityMapper _entityMapper;
+
+  MeetPeopleRemoteDataSource(this._entityMapper);
 
   @override
-  Future<MeetPeopleResponse> loadListMeetPeople(
+  Future<DomainModel> loadListMeetPeople(
       MeetPeopleParam meetPeopleParam) async {
     var searchSetting = FakeData.getSearchSetting();
     var location = FakeData.getLocaltion();
@@ -39,9 +43,23 @@ class MeetPeopleRemoteDataSource extends MeetPeopleRespository {
         token: token);
     Response response = await Http.instance.loadListMeetPeople(
         meetPeopleRequest);
-    MeetPeopleEntity meetPeopleEntity = MeetPeopleEntity().fromJson(response.data);
+    MeetPeopleEntity meetPeopleEntity = MeetPeopleEntity().fromJson(
+        response.data);
     print(response.data.toString());
-    return _meetPeopleMapper.mapToDomain(meetPeopleEntity);
+    print(meetPeopleEntity.code.toString());
+
+    return _entityMapper.mapToDomain(meetPeopleEntity);
+  }
+
+  @override
+  Future<DomainModel> loadListBanner(BannerParam bannerParam) async {
+    var gender = await SharePreferenceManager.getInt(PrefKey.GENDER);
+    var bannerRequest = BannerRequest.param(gender: gender,
+        deviceType: Const.deviceTypeAndroid,
+        api: "list_banner_client");
+    Response response = await Http.instance.loadListBanner(bannerRequest);
+    BannerEntity bannerEntity = BannerEntity().fromJson(response.data);
+    return _entityMapper.mapToDomain(bannerEntity);
   }
 
 }

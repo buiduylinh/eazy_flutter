@@ -1,6 +1,6 @@
-import 'package:eazy_flutter/domain/model/login_param.dart';
+import 'package:eazy_flutter/domain/model/params/login_param.dart';
 import 'package:eazy_flutter/domain/model/meetpeople/meetpeople_response.dart';
-import 'package:eazy_flutter/domain/model/meetpeople_param.dart';
+import 'package:eazy_flutter/domain/model/params/meetpeople_param.dart';
 import 'package:eazy_flutter/domain/repository/meetpeople_respository.dart';
 import 'package:eazy_flutter/domain/usercase/use_case.dart';
 

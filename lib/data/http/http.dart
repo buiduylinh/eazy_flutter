@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:eazy_flutter/app_const.dart';
 import 'package:eazy_flutter/data/http/app_interceptor.dart';
+import 'package:eazy_flutter/data/http/request/banner_request.dart';
 import 'package:eazy_flutter/data/http/request/login_request.dart';
 import 'package:eazy_flutter/data/http/request/meetpeople_request.dart';
 
@@ -31,6 +32,10 @@ class Http {
 
   Future<Response> loadListMeetPeople(MeetpeopleRequest meetpeopleRequest) async {
     return _dio.post("/", data: jsonEncode(meetpeopleRequest.toJson()));
+  }
+
+  Future<Response> loadListBanner(BannerRequest bannerRequest) async {
+    return _dio.post("/", data: jsonEncode(bannerRequest.toJson()));
   }
 
   Future<Response> executeRequest(String request) async {
