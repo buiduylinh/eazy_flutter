@@ -1,27 +1,26 @@
 import 'package:eazy_flutter/data/http/request/meetpeople_request.dart';
 import 'package:eazy_flutter/data/local/share_preference_key.dart';
 import 'package:eazy_flutter/data/local/sharepreference_manager.dart';
+import 'package:eazy_flutter/data/model/entity_mapper.dart';
+import 'package:eazy_flutter/data/model/meetpeople/meetpeople_entity_mapper.dart';
+import 'package:eazy_flutter/data/remote/user_remote_data_source.dart';
+import 'package:eazy_flutter/data/repository/meetpeople/meetpeople_repository_impl.dart';
+import 'package:eazy_flutter/data/repository/user/user_repository_impl.dart';
+import 'package:eazy_flutter/domain/model/meetpeople/meetpeople_response.dart';
+import 'package:eazy_flutter/domain/model/meetpeople_param.dart';
+import 'package:eazy_flutter/domain/repository/repository.dart';
+import 'package:eazy_flutter/domain/usercase/meetpeople_use_case.dart';
 import 'package:eazy_flutter/util/fake.dart';
 import 'package:flutter/cupertino.dart';
 
+EntityMapper _entityMapper = MeetPeopleEntityMapper();
+Repository _repository = UserRemoteDataSource(_entityMapper);
+Repository _meetPeopleRepository = MeetPeopleRepositoryImpl(_repository);
+MeetPeopleUseCase _loginUserCase = MeetPeopleUseCase(_meetPeopleRepository);
 class MeetPeopleProvider extends ChangeNotifier {
   void getListMeetPeople() async{
-    var searchSetting = FakeData.getSearchSetting();
-    var location = FakeData.getLocaltion();
-    var token = await SharePreferenceManager.getString(PrefKey.TOKEN);
-    var meetPeopleRequest = MeetpeopleRequest.fromSearchSettting(
-        distance: searchSetting.distance,
-        filter: searchSetting.filter,
-        isNewLogin: searchSetting.isNewLogin,
-        lat: location.item1,
-        long: location.item2,
-        lowerAge: searchSetting.minAge,
-        region: searchSetting.region,
-        skip: 0,
-        sortType: searchSetting.sortType,
-        take: 48,
-        upperAge: searchSetting.maxAge,
-        api: "meet_people",
-        token: token);
+    MeetPeopleResponse response = await _loginUserCase.execute(MeetPeopleParam());
+    print(response.listMeetPeople.length);
+    notifyListeners();
   }
 }

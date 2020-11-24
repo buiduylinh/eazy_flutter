@@ -4,7 +4,9 @@ import 'package:eazy_flutter/domain/model/meetpeople/meetpeople_response.dart';
 import 'package:eazy_flutter/generated/json/base/json_convert_content.dart';
 
 
-class MeetPeopleEntity extends EntityModel{
+class MeetPeopleEntity extends EntityModel with JsonConvert<MeetPeopleEntity> {
   List<MeetPeople> data;
+  int code;
+
 }
 

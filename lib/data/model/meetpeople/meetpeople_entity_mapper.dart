@@ -6,7 +6,7 @@ import 'meetpeople_entity.dart';
 class MeetPeopleEntityMapper extends EntityMapper<MeetPeopleResponse, MeetPeopleEntity> {
   @override
   MeetPeopleResponse mapToDomain(MeetPeopleEntity entityModel) {
-    return MeetPeopleResponse(entityModel.listMeetPeople, entityModel.code);
+    return MeetPeopleResponse(entityModel.data, entityModel.code);
   }
 
   @override

@@ -6,6 +6,9 @@ import 'package:eazy_flutter/domain/usercase/use_case.dart';
 
 class MeetPeopleUseCase extends UseCase<MeetPeopleParam, Future<MeetPeopleResponse>> {
   MeetPeopleRespository _repository;
+
+  MeetPeopleUseCase(this._repository);
+
   @override
   Future<MeetPeopleResponse> execute(MeetPeopleParam param) async{
     MeetPeopleResponse response = await _repository.loadListMeetPeople(param);
