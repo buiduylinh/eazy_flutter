@@ -17,9 +17,10 @@ import 'package:eazy_flutter/util/fake.dart';
 import '../../app_const.dart';
 
 class MeetPeopleRemoteDataSource extends MeetPeopleRespository {
-  EntityMapper _entityMapper;
+  EntityMapper _meetpeopleMapper;
+  EntityMapper _bannerMapper;
 
-  MeetPeopleRemoteDataSource(this._entityMapper);
+  MeetPeopleRemoteDataSource(this._meetpeopleMapper, this._bannerMapper);
 
   @override
   Future<DomainModel> loadListMeetPeople(
@@ -29,7 +30,7 @@ class MeetPeopleRemoteDataSource extends MeetPeopleRespository {
     var token = await SharePreferenceManager.getString(PrefKey.TOKEN);
     var meetPeopleRequest = MeetpeopleRequest.fromSearchSettting(
         distance: searchSetting.distance,
-        filter: searchSetting.filter,
+        filter: meetPeopleParam.typeMeetPeople,
         isNewLogin: searchSetting.isNewLogin,
         lat: location.item1,
         long: location.item2,
@@ -48,7 +49,7 @@ class MeetPeopleRemoteDataSource extends MeetPeopleRespository {
     print(response.data.toString());
     print(meetPeopleEntity.code.toString());
 
-    return _entityMapper.mapToDomain(meetPeopleEntity);
+    return _meetpeopleMapper.mapToDomain(meetPeopleEntity);
   }
 
   @override
@@ -59,7 +60,7 @@ class MeetPeopleRemoteDataSource extends MeetPeopleRespository {
         api: "list_banner_client");
     Response response = await Http.instance.loadListBanner(bannerRequest);
     BannerEntity bannerEntity = BannerEntity().fromJson(response.data);
-    return _entityMapper.mapToDomain(bannerEntity);
+    return _bannerMapper.mapToDomain(bannerEntity);
   }
 
 }

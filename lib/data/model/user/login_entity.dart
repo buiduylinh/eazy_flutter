@@ -1,7 +1,7 @@
 import 'package:eazy_flutter/data/model/entity_mapper.dart';
 import 'package:eazy_flutter/data/model/entity_model.dart';
 import 'package:eazy_flutter/domain/model/domain_model.dart';
-import 'package:eazy_flutter/domain/model/login_response.dart';
+import 'package:eazy_flutter/domain/model/login/login_response.dart';
 
 class LoginEntity extends EntityModel {
   List<String> accessedPages;

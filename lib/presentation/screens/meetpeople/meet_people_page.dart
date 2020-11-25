@@ -23,7 +23,7 @@ class _MeetPeoplePageState extends State<MeetPeoplePage>
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<MeetPeopleProvider>(context, listen: false)
-          .getListMeetPeople();
+          .getDataFirstTime();
     });
   }
 
@@ -39,18 +39,18 @@ class _MeetPeoplePageState extends State<MeetPeoplePage>
       child: ListView(
         children: <Widget>[
           // createTypeBanner(),
-          createTypeHeader("Register"),
+          _createTypeHeader("Register"),
           // createTypeRegister(),
-          createTypeHeader("Call Waiting"),
+          _createTypeHeader("Call Waiting"),
           // createTypeCallWaiting(),
-          createTypeHeader("All"),
+          _createTypeHeader("All"),
           // createTypeAll()
         ],
       ),
     );
   }
 
-  Widget createTypeHeader(String headerTitle) {
+  Widget _createTypeHeader(String headerTitle) {
     return Container(
       padding:
           EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
@@ -62,13 +62,13 @@ class _MeetPeoplePageState extends State<MeetPeoplePage>
     );
   }
 
-  Widget createTypeBanner() {
+  Widget _createTypeBanner() {
 
   }
 
-  Widget createTypeCallWaiting() {}
+  Widget _createTypeCallWaiting() {}
 
-  Widget createTypeRegister() {}
+  Widget _createTypeRegister() {}
 
-  Widget createTypeAll() {}
+  Widget _createTypeAll() {}
 }

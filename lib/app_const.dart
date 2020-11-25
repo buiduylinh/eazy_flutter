@@ -9,4 +9,8 @@ class Const {
   static final int deviceTypeAndroid = 1;
   static final int deviceTypeIos = 0;
 
+  static const int meetpeopleTypeAll = 0;
+  static const int meetpeopleTypeCallWaiting = 1;
+  static const int meetpeopleTypeRegister = 2;
+
 }

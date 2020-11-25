@@ -18,6 +18,7 @@ class _MyPageState extends State<MyPage> {
   @override
   void dispose() {
     super.dispose();
+    Calculator ca = Calculator();
   }
 
   @override
