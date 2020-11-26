@@ -2,6 +2,7 @@ import 'package:eazy_flutter/presentation/route/route_handler.dart';
 import 'package:eazy_flutter/presentation/screens/login/login_provider.dart';
 import 'package:eazy_flutter/presentation/screens/meetpeople/meet_people_provider.dart';
 import 'package:eazy_flutter/presentation/screens/splash/splash_page.dart';
+import 'package:eazy_flutter/presentation/screens/timeline/timeline_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,7 @@ Future<void> main() async {
     providers: [
       ChangeNotifierProvider(create: (_) => LoginProvider(),),
       ChangeNotifierProvider(create: (_) => MeetPeopleProvider(),),
+      ChangeNotifierProvider(create: (_) => TimeLineProvider(),),
 
     ],
     child: MyApp(),

@@ -3,4 +3,5 @@ class PrefKey {
   static const String LOGIN_REQUEST = "pref_key_login_request";
   // USER DATA
   static const String GENDER = "pref_key_gender";
+  static const String USER_ID = "pref_key_user_id";
 }
