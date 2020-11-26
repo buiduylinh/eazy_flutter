@@ -10,6 +10,9 @@ bannerRequestFromJson(BannerRequest data, Map<String, dynamic> json) {
 	if (json['api'] != null) {
 		data.api = json['api']?.toString();
 	}
+	if (json['token'] != null) {
+		data.token = json['token']?.toString();
+	}
 	return data;
 }
 
@@ -18,5 +21,6 @@ Map<String, dynamic> bannerRequestToJson(BannerRequest entity) {
 	data['gender'] = entity.gender;
 	data['device_type'] = entity.deviceType;
 	data['api'] = entity.api;
+	data['token'] = entity.token;
 	return data;
 }

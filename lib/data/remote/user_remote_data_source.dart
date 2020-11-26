@@ -49,7 +49,6 @@ class UserRemoteDataSource extends UserRepository {
     BaseHttpEntity<LoginEntity> loginResponse = BaseHttpEntity.fromJson(
         response.data, (data) => LoginEntity.fromJson(data));
     LoginEntity entity = loginResponse.data;
-    print(response.data.toString());
     if (loginResponse.code == HttpCode.SERVER_SUCCESS) {
       SharePreferenceManager.setString(PrefKey.TOKEN, entity.token);
       return _entityMapper.mapToDomain(entity);

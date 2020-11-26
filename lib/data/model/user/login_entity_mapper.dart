@@ -8,11 +8,11 @@ import 'login_entity.dart';
 
 class LoginEntityMapper extends EntityMapper {
   @override
-  DomainModel mapToDomain(EntityModel entityModel) {
+  Future<DomainModel> mapToDomain(EntityModel entityModel) async{
     var loginResponse = LoginResponse(code: 0, gender: (entityModel as LoginEntity).gender);
     return loginResponse;
   }
 
   @override
-  EntityModel mapToEntity(DomainModel domainModel) {}
+  Future<EntityModel> mapToEntity(DomainModel domainModel) async{}
 }

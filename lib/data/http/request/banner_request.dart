@@ -6,8 +6,9 @@ class BannerRequest with JsonConvert<BannerRequest> {
   @JSONField(name: "device_type")
   int deviceType;
   String api;
+  String token;
 
   BannerRequest();
 
-  BannerRequest.param({this.gender, this.deviceType, this.api});
+  BannerRequest.param({this.gender, this.deviceType, this.api, this.token});
 }

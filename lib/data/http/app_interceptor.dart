@@ -20,8 +20,8 @@ class AppInterceptor extends InterceptorsWrapper {
     // BaseHttpEntity<LoginEntity> entity = BaseHttpEntity<LoginEntity>.fromJson(response.data, (data) => LoginEntity.fromJson(data));
     BaseHttpEntityOnlyCode baseHttpEntityOnlyCode =
         BaseHttpEntityOnlyCode.fromJson(response.data);
+    var request = jsonDecode(response.request.data);
     if (baseHttpEntityOnlyCode.code == HttpCode.INVALID_TOKEN) {
-      var request = jsonDecode(response.request.data);
       var token = request['token'];
       var prefToken = await SharePreferenceManager.getString(PrefKey.TOKEN);
       print(prefToken);
@@ -43,7 +43,8 @@ class AppInterceptor extends InterceptorsWrapper {
         Http.instance.executeRequest(jsonEncode(request));
       }
     }
-
+    print("${request['api']} - REQUEST: ${request}");
+    print("${request['api']} - RESPONSE: ${response.data}");
     return super.onResponse(response);
   }
 

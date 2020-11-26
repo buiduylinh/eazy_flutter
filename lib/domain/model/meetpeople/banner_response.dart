@@ -1,8 +1,9 @@
 import 'package:eazy_flutter/domain/model/domain_model.dart';
-import 'banner.dart';
+
+import 'banner_domain.dart';
 
 class BannerResponse extends DomainModel {
-  List<MeetPeopleBanner> listBanner;
+  List<BannerDomainItem> listBanner;
   int code;
 
   BannerResponse(this.listBanner, this.code);

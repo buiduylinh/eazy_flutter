@@ -46,18 +46,17 @@ class MeetPeopleRemoteDataSource extends MeetPeopleRespository {
         meetPeopleRequest);
     MeetPeopleEntity meetPeopleEntity = MeetPeopleEntity().fromJson(
         response.data);
-    print(response.data.toString());
-    print(meetPeopleEntity.code.toString());
-
     return _meetpeopleMapper.mapToDomain(meetPeopleEntity);
   }
 
   @override
   Future<DomainModel> loadListBanner(BannerParam bannerParam) async {
-    var gender = await SharePreferenceManager.getInt(PrefKey.GENDER);
+    var sharePreference = await SharePreferenceManager.instance();
+    var gender = sharePreference.getInt(PrefKey.GENDER);
+    var token = sharePreference.getString(PrefKey.TOKEN);
     var bannerRequest = BannerRequest.param(gender: gender,
         deviceType: Const.deviceTypeAndroid,
-        api: "list_banner_client");
+        api: "list_banner_client", token: token);
     Response response = await Http.instance.loadListBanner(bannerRequest);
     BannerEntity bannerEntity = BannerEntity().fromJson(response.data);
     return _bannerMapper.mapToDomain(bannerEntity);

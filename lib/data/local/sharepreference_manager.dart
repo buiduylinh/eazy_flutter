@@ -4,6 +4,9 @@ class SharePreferenceManager {
   SharePreferenceManager._();
 
   // -------------------------------------START------------------------------------
+  static Future<dynamic> instance() async {
+    return await SharedPreferences.getInstance();
+  }
   static Future<dynamic> get(String key) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.get(key);
