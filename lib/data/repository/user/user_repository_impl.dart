@@ -15,6 +15,7 @@ class UserRepositoryImpl extends UserRepository {
   Future<DomainModel> login(LoginParam loginRequest){
     var loginResponse  = cast<LoginResponse>(remote.login(loginRequest));
     SharePreferenceManager.setInt(PrefKey.GENDER, loginResponse?.gender);
+    SharePreferenceManager.setString(PrefKey.USER_ID, loginResponse?.userId);
     return remote.login(loginRequest);
   }
 }

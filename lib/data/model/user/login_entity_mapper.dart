@@ -9,7 +9,7 @@ import 'login_entity.dart';
 class LoginEntityMapper extends EntityMapper {
   @override
   DomainModel mapToDomain(EntityModel entityModel) {
-    var loginResponse = LoginResponse(code: 0, gender: (entityModel as LoginEntity).gender);
+    var loginResponse = LoginResponse(code: 0, gender: (entityModel as LoginEntity).gender, userId: (entityModel as LoginEntity).userId);
     return loginResponse;
   }
 

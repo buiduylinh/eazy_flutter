@@ -6,6 +6,7 @@ import 'package:eazy_flutter/data/http/app_interceptor.dart';
 import 'package:eazy_flutter/data/http/request/banner_request.dart';
 import 'package:eazy_flutter/data/http/request/login_request.dart';
 import 'package:eazy_flutter/data/http/request/meetpeople_request.dart';
+import 'package:eazy_flutter/data/http/request/timeline_request.dart';
 
 class Http {
   static final Http _instance = Http._internal();
@@ -36,6 +37,10 @@ class Http {
 
   Future<Response> loadListBanner(BannerRequest bannerRequest) async {
     return _dio.post("/", data: jsonEncode(bannerRequest.toJson()));
+  }
+
+  Future<Response> loadListTimeLine(TimeLineRequest timeLineRequest) async {
+    return _dio.post("/", data: jsonEncode(timeLineRequest.toJson()));
   }
 
   Future<Response> executeRequest(String request) async {
