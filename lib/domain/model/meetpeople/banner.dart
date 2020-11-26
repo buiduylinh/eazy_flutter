@@ -1,7 +1,7 @@
 import 'package:eazy_flutter/generated/json/base/json_convert_content.dart';
 import 'package:eazy_flutter/generated/json/base/json_field.dart';
 
-class Banner with JsonConvert<Banner> {
+class MeetPeopleBanner with JsonConvert<MeetPeopleBanner> {
   @JSONField(name: "banner_id")
   String bannerId;
   @JSONField(name: "title")

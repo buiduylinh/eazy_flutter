@@ -7,6 +7,9 @@ bannerRequestFromJson(BannerRequest data, Map<String, dynamic> json) {
 	if (json['device_type'] != null) {
 		data.deviceType = json['device_type']?.toInt();
 	}
+	if (json['api'] != null) {
+		data.api = json['api']?.toString();
+	}
 	return data;
 }
 
@@ -14,5 +17,6 @@ Map<String, dynamic> bannerRequestToJson(BannerRequest entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['gender'] = entity.gender;
 	data['device_type'] = entity.deviceType;
+	data['api'] = entity.api;
 	return data;
 }

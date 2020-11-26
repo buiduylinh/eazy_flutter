@@ -1,12 +1,12 @@
-import 'package:eazy_flutter/data/model/meetpeople/meetpeople_entity.dart';
+import 'package:eazy_flutter/data/model/meetpeople/banner_entity.dart';
+import 'package:eazy_flutter/domain/model/meetpeople/banner.dart';
 import 'package:eazy_flutter/data/model/entity_model.dart';
-import 'package:eazy_flutter/domain/model/meetpeople/meet_people.dart';
 
-meetPeopleEntityFromJson(MeetPeopleEntity data, Map<String, dynamic> json) {
+bannerEntityFromJson(BannerEntity data, Map<String, dynamic> json) {
 	if (json['data'] != null) {
-		data.data = new List<MeetPeople>();
+		data.data = new List<MeetPeopleBanner>();
 		(json['data'] as List).forEach((v) {
-			data.data.add(new MeetPeople().fromJson(v));
+			data.data.add(new MeetPeopleBanner().fromJson(v));
 		});
 	}
 	if (json['code'] != null) {
@@ -15,7 +15,7 @@ meetPeopleEntityFromJson(MeetPeopleEntity data, Map<String, dynamic> json) {
 	return data;
 }
 
-Map<String, dynamic> meetPeopleEntityToJson(MeetPeopleEntity entity) {
+Map<String, dynamic> bannerEntityToJson(BannerEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.data != null) {
 		data['data'] =  entity.data.map((v) => v.toJson()).toList();

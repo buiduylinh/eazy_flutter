@@ -4,7 +4,7 @@ import 'package:eazy_flutter/data/model/entity_model.dart';
 
 
 class BannerEntity extends EntityModel with JsonConvert<BannerEntity> {
-  List<Banner> data;
+  List<MeetPeopleBanner> data;
   int code;
 
 }

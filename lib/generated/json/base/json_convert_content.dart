@@ -11,6 +11,10 @@ import 'package:eazy_flutter/data/http/request/meetpeople_request.dart';
 import 'package:eazy_flutter/generated/json/meetpeople_request_helper.dart';
 import 'package:eazy_flutter/domain/model/meetpeople/meet_people.dart';
 import 'package:eazy_flutter/generated/json/meet_people_helper.dart';
+import 'package:eazy_flutter/data/model/meetpeople/banner_entity.dart';
+import 'package:eazy_flutter/generated/json/banner_entity_helper.dart';
+import 'package:eazy_flutter/domain/model/meetpeople/banner.dart';
+import 'package:eazy_flutter/generated/json/banner_helper.dart';
 
 class JsonConvert<T> {
 	T fromJson(Map<String, dynamic> json) {
@@ -26,7 +30,9 @@ class JsonConvert<T> {
 			return meetPeopleEntityFromJson(data as MeetPeopleEntity, json) as T;			case BannerRequest:
 			return bannerRequestFromJson(data as BannerRequest, json) as T;			case MeetpeopleRequest:
 			return meetpeopleRequestFromJson(data as MeetpeopleRequest, json) as T;			case MeetPeople:
-			return meetPeopleFromJson(data as MeetPeople, json) as T;    }
+			return meetPeopleFromJson(data as MeetPeople, json) as T;			case BannerEntity:
+			return bannerEntityFromJson(data as BannerEntity, json) as T;			case MeetPeopleBanner:
+			return meetPeopleBannerFromJson(data as MeetPeopleBanner, json) as T;    }
     return data as T;
   }
 
@@ -35,7 +41,9 @@ class JsonConvert<T> {
 			return meetPeopleEntityToJson(data as MeetPeopleEntity);			case BannerRequest:
 			return bannerRequestToJson(data as BannerRequest);			case MeetpeopleRequest:
 			return meetpeopleRequestToJson(data as MeetpeopleRequest);			case MeetPeople:
-			return meetPeopleToJson(data as MeetPeople);    }
+			return meetPeopleToJson(data as MeetPeople);			case BannerEntity:
+			return bannerEntityToJson(data as BannerEntity);			case MeetPeopleBanner:
+			return meetPeopleBannerToJson(data as MeetPeopleBanner);    }
     return data as T;
   }
   //Go back to a single instance by type
@@ -44,7 +52,9 @@ class JsonConvert<T> {
 			return MeetPeopleEntity().fromJson(json);			case 'BannerRequest':
 			return BannerRequest().fromJson(json);			case 'MeetpeopleRequest':
 			return MeetpeopleRequest().fromJson(json);			case 'MeetPeople':
-			return MeetPeople().fromJson(json);    }
+			return MeetPeople().fromJson(json);			case 'BannerEntity':
+			return BannerEntity().fromJson(json);			case 'MeetPeopleBanner':
+			return MeetPeopleBanner().fromJson(json);    }
     return null;
   }
 
@@ -54,7 +64,9 @@ class JsonConvert<T> {
 			return List<MeetPeopleEntity>();			case 'BannerRequest':
 			return List<BannerRequest>();			case 'MeetpeopleRequest':
 			return List<MeetpeopleRequest>();			case 'MeetPeople':
-			return List<MeetPeople>();    }
+			return List<MeetPeople>();			case 'BannerEntity':
+			return List<BannerEntity>();			case 'MeetPeopleBanner':
+			return List<MeetPeopleBanner>();    }
     return null;
   }
 

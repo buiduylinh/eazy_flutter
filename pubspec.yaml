@@ -41,8 +41,6 @@ dependencies:
   flutter_spinkit: ^4.1.2+1
   device_info: ^1.0.0
   tuple: ^1.0.3
-  hello:
-    path: ./hello
 
 dev_dependencies:
   flutter_test:
