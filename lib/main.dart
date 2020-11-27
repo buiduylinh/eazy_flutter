@@ -37,7 +37,7 @@ Future<FlavorSettings> _getFlavorSettings() async {
   // } else {
   //     throw Exception('NOT FOUND FLAVOR');
   // }
-  return FlavorSettings.live();
+  return FlavorSettings.dev();
 }
 
 class MyApp extends StatelessWidget {

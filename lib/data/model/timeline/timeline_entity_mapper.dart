@@ -4,13 +4,13 @@ import 'package:eazy_flutter/domain/model/domain_model.dart';
 
 class TimeLineEntityMapper extends EntityMapper{
   @override
-  DomainModel mapToDomain(EntityModel entityModel) {
+  Future<DomainModel> mapToDomain(EntityModel entityModel) async{
     // TODO: implement mapToDomain
     throw UnimplementedError();
   }
 
   @override
-  EntityModel mapToEntity(DomainModel domainModel) {
+  Future<EntityModel> mapToEntity(DomainModel domainModel) async{
     // TODO: implement mapToEntity
     throw UnimplementedError();
   }

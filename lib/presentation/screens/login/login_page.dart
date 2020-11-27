@@ -71,8 +71,10 @@ class LoginPage extends StatelessWidget {
                   color: Color(0xff017cf9),
                   onPressed: () {
                     context.read<LoginProvider>().login(LoginParam(
-                        mailTextController.text.toString(),
-                        passTextController.text.toString()));
+                        // "eazy1910@ntq-solution.com",
+                        // "ntq123"));
+                        "hinata@gmail.com",
+                        "111111"));
                   },
                   child: Text(
                     'ログイン',

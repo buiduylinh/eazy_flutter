@@ -16,7 +16,7 @@ class ImageUrlCreator {
 
   String createUrl() {
     var stringBuffer = StringBuffer();
-    stringBuffer.write(Const.imgUrl);
+    stringBuffer.write("http://eazy1.ntq.solutions:9117/");
     stringBuffer.write("api");
     stringBuffer.write("=");
     stringBuffer.write(this.api);

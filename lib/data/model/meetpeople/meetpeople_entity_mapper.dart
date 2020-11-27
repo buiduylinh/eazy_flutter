@@ -1,3 +1,4 @@
+import 'package:eazy_flutter/data/helper/image_url_creator.dart';
 import 'package:eazy_flutter/data/local/share_preference_key.dart';
 import 'package:eazy_flutter/data/local/sharepreference_manager.dart';
 import 'package:eazy_flutter/data/model/entity_model.dart';
@@ -11,6 +12,17 @@ class MeetPeopleEntityMapper extends EntityMapper {
   @override
   Future<DomainModel> mapToDomain(EntityModel entityModel) async{
     var meetPeopleEntity = entityModel as MeetPeopleEntity;
+    var token = await SharePreferenceManager.getString(PrefKey.TOKEN);
+
+    // var list = meetPeopleEntity.data.map((entityItem) {
+    //   var itemUrl = ImageUrlCreator(
+    //       token: token,
+    //       imageId: entityItem.avaId,
+    //       imgKind: ImageUrlCreator.THUMBNAIL)
+    //       .createUrl();
+    //
+    //   return entityItem
+    // }).toList();
     return MeetPeopleResponse(meetPeopleEntity.data, meetPeopleEntity.code);
   }
 

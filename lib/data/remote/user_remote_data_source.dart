@@ -53,7 +53,7 @@ class UserRemoteDataSource extends UserRepository {
       SharePreferenceManager.setString(PrefKey.TOKEN, entity.token);
       return _entityMapper.mapToDomain(entity);
     } else {
-      throw loginResponse.code;
+      return Future.error(error)
     }
   }
 
