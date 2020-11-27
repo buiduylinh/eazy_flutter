@@ -86,7 +86,10 @@ class LoginPage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 24),
                 child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      mailTextController.text = "hinata@gmail.com";
+                      passTextController.text = "111111";
+                    },
                     child: Text(
                       'パスワードをお忘れですか？',
                       style: TextStyle(

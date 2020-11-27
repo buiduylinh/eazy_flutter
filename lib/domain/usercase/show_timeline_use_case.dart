@@ -10,8 +10,9 @@ class ShowTimeLineUseCase extends UseCase<ShowTimeLineParam, Future<TimeLineResp
   ShowTimeLineUseCase(this._timeLineRepository);
 
   @override
-  Future<TimeLineResponse> execute(ShowTimeLineParam param) {
-    _timeLineRepository.loadListTimeLine(param);
+  Future<TimeLineResponse> execute(ShowTimeLineParam param) async {
+    TimeLineResponse timeLineResponse = await _timeLineRepository.loadListTimeLine(param);
+    return timeLineResponse;
   }
 
 }

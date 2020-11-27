@@ -51,7 +51,6 @@ class _TimelinePageState extends State<TimelinePage>
                 labelColor: Color(AppTheme.PRIMARY_COLOR),
                 onTap: (index) {
                   _pageController.jumpToPage(index);
-                  context.read<TimeLineProvider>().getListTimeLine(0, 0, 24);
                 },
                 tabs: [
                   Tab(
@@ -64,6 +63,10 @@ class _TimelinePageState extends State<TimelinePage>
                     child: Text("My Post"),
                   )
                 ]),
+          ),
+          Container(
+            color: Colors.black,
+            height: 70,
           ),
           Expanded(
             child: PageView.builder(
