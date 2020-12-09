@@ -19,6 +19,10 @@ class TimeLineEntityMapper extends EntityMapper {
       post.userId = timeLineEntity.data[i].userId;
       post.buzzId = timeLineEntity.data[i].buzzId;
       post.buzzType = timeLineEntity.data[i].buzzType;
+      post.listComment = timeLineEntity.data[i].comment;
+      post.numLike = timeLineEntity.data[i].likeNum;
+      post.numComment = timeLineEntity.data[i].cmtNum;
+      post.commentPoint = timeLineEntity.data[i].commentBuzzPoint;
       if (timeLineEntity.data[i].buzzType == 0) {
         post.buzzValue = timeLineEntity.data[i].buzzVal;
       } else {
